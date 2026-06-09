@@ -1,0 +1,11 @@
+{
+  "name": "Casse-Latte Simulator",
+  "short_name": "Casse-Latte",
+  "description": "Mini simulateur humoristique de sommier martyrisé, mobile-first et installable.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#130c22",
+  "theme_color": "#1d1230"
+}
