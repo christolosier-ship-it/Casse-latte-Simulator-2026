@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#321026" />
+    <meta
+      name="description"
+      content="Casse-Latte Simulator, une mini app mobile-first pour massacrer un lit cartoon à coups de rodéo sommier."
+    />
+    <title>Casse-Latte Simulator</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <section class="screen screen--active home-screen" id="home-screen" aria-labelledby="home-title">
+        <div class="hero-card">
+          <p class="eyebrow">Simulateur de galipette destructrice</p>
+          <h1 id="home-title">Casse-Latte Simulator</h1>
+          <p class="intro">
+            Tape sur le lit, déclenche le rodéo sous couette et regarde les lattes abandonner leur dignité une par une.
+          </p>
+          <button class="button button--primary" id="start-button" type="button">Lancer le rodéo sommier</button>
+        </div>
+      </section>
+
+      <section class="screen game-screen" id="game-screen" aria-labelledby="game-title">
+        <header class="hud">
+          <div>
+            <p class="eyebrow">Zone sinistrée sous couette</p>
+            <h2 id="game-title">Casse-Latte Simulator</h2>
+          </div>
+          <button class="reset-button" id="reset-button" type="button" aria-label="Réinitialiser la partie">Reset honteux</button>
+        </header>
+
+        <div class="stats-panel">
+          <div class="stat">
+            <span class="stat__label">Coups</span>
+            <strong id="hit-count">0</strong>
+          </div>
+          <div class="gauge" aria-label="Indice de Rodéo sous Couette">
+            <div class="gauge__topline">
+              <span>Indice de Rodéo sous Couette</span>
+              <strong id="damage-percent">0%</strong>
+            </div>
+            <div class="gauge__track">
+              <div class="gauge__fill" id="damage-fill"></div>
+            </div>
+            <div class="damage-label" id="damage-label">Lit innocent</div>
+          </div>
+        </div>
+
+        <div class="message-card" id="message-card">Le sommier sent que la soirée va dépasser la notice constructeur.</div>
+
+        <button class="bed-stage" id="bed-button" type="button" aria-label="Frapper le lit cartoon">
+          <span class="speech-bubble" id="speech-bubble" aria-hidden="true"></span>
+          <span class="combo-bubble" id="combo-bubble" aria-hidden="true"></span>
+          <span class="debris-layer" id="debris-layer" aria-hidden="true"></span>
+          <span class="bed" id="bed">
+            <span class="headboard"></span>
+            <span class="pillow pillow--left"></span>
+            <span class="pillow pillow--right"></span>
+            <span class="blanket"></span>
+            <span class="frame frame--back"></span>
+            <span class="slats" aria-hidden="true">
+              <span class="slat" data-slat="1"></span>
+              <span class="slat" data-slat="2"></span>
+              <span class="slat" data-slat="3"></span>
+              <span class="slat" data-slat="4"></span>
+              <span class="slat" data-slat="5"></span>
+              <span class="slat" data-slat="6"></span>
+              <span class="slat" data-slat="7"></span>
+              <span class="slat" data-slat="8"></span>
+            </span>
+            <span class="frame frame--front"></span>
+            <span class="leg leg--left"></span>
+            <span class="leg leg--right"></span>
+          </span>
+        </button>
+      </section>
+
+      <section class="screen final-screen" id="final-screen" aria-labelledby="final-title">
+        <div class="final-card">
+          <p class="stamp">Dossier classé : mobilier traumatisé</p>
+          <h2 id="final-title">SINISTRE LITERIE CONFIRMÉ</h2>
+          <p class="final-summary" id="final-summary">
+            Le lit n’a pas cassé. Il a capitulé.
+          </p>
+
+          <div class="final-report" aria-label="Rapport de sinistre literie">
+            <div class="final-report__row">
+              <span class="final-report__label">Cause probable</span>
+              <strong class="final-report__value" id="final-cause">Rodéo sous couette hors tolérance constructeur.</strong>
+            </div>
+            <div class="final-report__row">
+              <span class="final-report__label">État du matériel</span>
+              <strong class="final-report__value" id="final-state">Cadre plié, lattes dispersées, sommier traumatisé.</strong>
+            </div>
+            <div class="final-report__row">
+              <span class="final-report__label">Recommandation</span>
+              <strong class="final-report__value" id="final-recommendation">Remplacement par sommier catégorie bunker nuptial.</strong>
+            </div>
+          </div>
+
+          <div class="final-actions">
+            <button class="button button--primary" id="restart-button" type="button">Recommencer le carnage</button>
+            <button class="button button--ghost" id="official-button" type="button">Version officielle : elle dormait</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
