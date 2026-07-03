@@ -188,10 +188,35 @@ const slats = [...document.querySelectorAll(".slat")];
 let hits = 0;
 let brokenSlats = 0;
 let audioContext;
+let screenTransitionTimeout;
 
 function showScreen(screenName) {
-  Object.values(screens).forEach((screen) => screen.classList.remove("screen--active"));
-  screens[screenName].classList.add("screen--active");
+  const nextScreen = screens[screenName];
+  const currentScreen = Object.values(screens).find((screen) => screen.classList.contains("screen--active"));
+
+  if (!nextScreen || currentScreen === nextScreen) {
+    return;
+  }
+
+  window.clearTimeout(screenTransitionTimeout);
+
+  Object.values(screens).forEach((screen) => {
+    if (screen !== currentScreen && screen !== nextScreen) {
+      screen.classList.remove("screen--active", "screen--exiting");
+    }
+  });
+
+  if (currentScreen) {
+    currentScreen.classList.remove("screen--active");
+    currentScreen.classList.add("screen--exiting");
+
+    screenTransitionTimeout = window.setTimeout(() => {
+      currentScreen.classList.remove("screen--exiting");
+    }, 170);
+  }
+
+  nextScreen.classList.remove("screen--exiting");
+  nextScreen.classList.add("screen--active");
 }
 
 function randomItem(items) {
